@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+ 
+specVersion: "3.1"
+metadata:
+  name: com.zmmr.update_driver
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: http://s4devapp.jaleel.local:8000/
+          client: "500"
+        app:
+          name: ZDM_DRIV_UPD
+          description: Deployment From VS Code
+          package: ZDM_UI
+          transport: REDK993755
+        exclude:
+          - /test/

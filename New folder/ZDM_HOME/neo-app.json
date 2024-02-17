@@ -1,0 +1,242 @@
+{
+  "welcomeFile": "/index.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources",
+        "version": "1.52.13"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources",
+        "version": "1.52.13"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/gwd",
+      "target": {
+        "type": "destination",
+        "name": "GWD"
+      },
+      "description": "GWD Maven"
+    },
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "GWD",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "GWD"
+    },
+    {
+      "path": "/sap/bc/ui5_ui5",
+      "target": {
+        "type": "destination",
+        "name": "GWD",
+        "entryPath": "/sap/bc/ui5_ui5"
+      },
+      "description": "GWD"
+    },
+    {
+      "path": "/resources/com/maventic/commonDashboard",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_cdb",
+        "preferLocal": true
+      },
+      "description": "com/maventic/commonDashboard Reuse Library"
+    },
+    {
+      "path": "/resources/com/maventic/AdditionalInfo",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_info",
+        "preferLocal": true
+      },
+      "description": "com/maventic/AdditionalInfo Reuse Library"
+    },
+    {
+      "path": "/resources/com/zdm/InwardOfAsset",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_in_asset",
+        "preferLocal": true
+      },
+      "description": "com/zdm/InwardOfAsset Reuse Library"
+    },
+    {
+      "path": "/resources/com/zdm/InwardOfAccessory",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_in_accsry",
+        "preferLocal": true
+      },
+      "description": "com/zdm/InwardOfAccessory Reuse Library"
+    },
+    {
+      "path": "/resources/com/maventic/ScrappingProcess",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_scrap_prc",
+        "preferLocal": true
+      },
+      "description": "com/maventic/ScrappingProcess Reuse Library"
+    },
+    {
+      "path": "/resources/com/maventic/AssetAllocation",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_allo",
+        "preferLocal": true
+      },
+      "description": "com/maventic/AssetAllocation Reuse Library"
+    },
+    {
+      "path": "/resources/com/maventic/EAMTransferAsset",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_tr_req",
+        "preferLocal": true
+      },
+      "description": "com/maventic/EAMTransferAsset Reuse Library"
+    },
+    {
+      "path": "/resources/com/maventic/SearchGatepass",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/rc_gatepas",
+        "preferLocal": true
+      },
+      "description": "com/maventic/SearchGatepass Reuse Library"
+    },
+    {
+      "path": "/resources/com/maventic/accessorySearch",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_acs_srh",
+        "preferLocal": true
+      },
+      "description": "com/maventic/accessorySearch Reuse Library"
+    },
+    {
+      "path": "/resources/com/maventic/accessoryAlloc",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_acs_alloc",
+        "preferLocal": true
+      },
+      "description": "com/maventic/accessoryAlloc Reuse Library"
+    },
+    {
+      "path": "/resources/com/zdm/MassUpdtAsset",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_in_mu_ast",
+        "preferLocal": true
+      },
+      "description": "com/zdm/MassUpdtAsset Reuse Library"
+    },
+    {
+      "path": "/resources/com/zdm/AddSoftware",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_in_addsof",
+        "preferLocal": true
+      },
+      "description": "com/zdm/AddSoftware Reuse Library"
+    },
+    {
+      "path": "/resources/com/maventic/EAMTransferAssetActionItem",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_tr_ac_itm",
+        "preferLocal": true
+      },
+      "description": "com/maventic/EAMTransferAssetActionItem Reuse Library"
+    },
+    {
+      "path": "/resources/com/maventic/SearchDeallocate",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_srh_deall",
+        "preferLocal": true
+      },
+      "description": "com/maventic/SearchDeallocate Reuse Library"
+    },
+    {
+      "path": "/resources/com/maventic/deAllocate",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_dalo",
+        "preferLocal": true
+      },
+      "description": "com/maventic/deAllocate Reuse Library"
+    },
+    {
+      "path": "/resources/com/zdm/UpdateAccessoryDetails",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_in_utd_ac",
+        "preferLocal": true
+      },
+      "description": "com/zdm/UpdateAccessoryDetails Reuse Library"
+    },
+    {
+      "path": "/resources/com/zdm/UpdateSoftware",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_updt_soft",
+        "preferLocal": true
+      },
+      "description": "com/zdm/UpdateSoftware Reuse Library"
+    },
+    {
+      "path": "/resources/com/maventc/TransAccesSearch",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_trsh",
+        "preferLocal": true
+      },
+      "description": "com/maventc/TransAccesSearch Reuse Library"
+    },
+    {
+      "path": "/resources/com/maventic/PhysicalInvetoryReport",
+      "target": {
+        "type": "destination",
+        "name": "MD1",
+        "entryPath": "/sap/bc/ui5_ui5/mvn/asset_pire",
+        "preferLocal": true
+      },
+      "description": "com/maventic/PhysicalInvetoryReport Reuse Library"
+    }
+  ],
+  "sendWelcomeFileRedirect": true
+}

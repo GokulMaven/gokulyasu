@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:ndc="sap.ndc">
+	<Dialog id="MultipleFragment" showHeader="false"  class="sapUiSizeCompact">
+		<customHeader >
+			<Bar class="blue">
+				<contentMiddle >
+					<!--<core:Icon src="{mMainModel>/Dialog/icon}" width="9%" color="{mMainModel>/Dialog/colour}"/>-->
+					<Title text="Multiple Billing Document" class="bold"/>
+				</contentMiddle>
+				<contentRight>
+					<core:Icon src="sap-icon://decline" color="" press="onCloseMsg"/>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<f:GridList items="{mMainModel>/input/BillDocList}">
+				<f:GridListItem>
+					<HBox width="100%" alignContent="SpaceBetween">
+						<VBox width="75%">
+						<Input value="{mMainModel>BillDoc}" editable="false" width="100%"></Input>
+						</VBox>
+						<HBox width="5%">
+							<ndc:BarcodeScannerButton width="100%"   scanSuccess="onScanInvoice"
+								inputLiveUpdate="onScanLiveUpdate"  keepCameraScan="{/keepCameraScanOne}"
+								class="sampleBarcodeScannerButtonWithZebraEB"/>
+								<Button icon="sap-icon://delete" press="onDeleteMultipleBillDocRow"></Button>
+						</HBox>
+						
+						
+							
+						
+					</HBox>
+				</f:GridListItem>
+			</f:GridList>
+			<Bar>
+				<contentRight>
+					<!--<Button text="Add" type="Emphasized" press="onAddMultipleBillDoc"></Button>-->
+					<Button text="Close" press="onCloseMsg"></Button>
+				</contentRight>
+			</Bar>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

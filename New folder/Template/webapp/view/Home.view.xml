@@ -1,0 +1,10 @@
+<mvc:View controllerName="com.eam.tr.asset.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:m="sap.m" xmlns:ndc="sap.ndc" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" height="100%">
+	<App>
+		<pages>
+			<Page title="Driver Update" showHeader="true">
+				
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

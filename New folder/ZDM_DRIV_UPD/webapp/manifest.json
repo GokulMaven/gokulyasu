@@ -1,0 +1,125 @@
+{
+    "_version": "1.7.0",
+    "sap.app": {
+        "id": "com.zmmr.update_driver",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "sourceTemplate": {
+            "id": "ui5template.basicSAPUI5ApplicationProject",
+            "version": "1.40.12",
+            "toolsId": "8103ecd1-e81f-4438-85bd-bec4403160e6"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_belize"
+        ]
+    },
+    "sap.ui5": {
+        "config": {
+            "fullWidth": true
+        },
+        "rootView": {
+            "viewName": "com.zmmr.update_driver.view.App",
+            "type": "XML"
+        },
+        "dependencies": {
+            "minUI5Version": "1.30.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {},
+                "sap.ushell": {},
+                "sap.collaboration": {},
+                "sap.ui.comp": {},
+                "sap.uxap": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.zmmr.update_driver.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "com.zmmr.update_driver.view",
+                "controlAggregation": "pages",
+                "transition": "show",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "home",
+                    "pattern": "",
+                    "target": "TargetView1"
+                },
+                {
+                    "name": "action",
+                    "pattern": "Action",
+                    "target": "TargetView2"
+                },
+                {
+                    "name": "actionDetail",
+                    "pattern": "Action/{ReqNo}",
+                    "target": "TargetView3"
+                }
+            ],
+            "targets": {
+                "TargetView1": {
+                    "viewType": "XML",
+                    "viewName": "Home"
+                },
+                "TargetView2": {
+                    "viewType": "XML",
+                    "viewName": "Action"
+                },
+                "TargetView3": {
+                    "viewType": "XML",
+                    "viewName": "ActionDetail"
+                }
+            }
+        }
+    },
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/sap/zdm_driv_upd",
+        "_version": "1.1.0"
+    }
+}

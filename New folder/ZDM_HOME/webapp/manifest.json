@@ -1,0 +1,369 @@
+{
+    "_version": "1.7.0",
+    "sap.app": {
+        "id": "com.zdm.Home",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "sourceTemplate": {
+            "id": "ui5template.basicSAPUI5ApplicationProject",
+            "version": "1.40.12",
+            "toolsId": "bf1b7b7b-3b04-4707-a488-79567543d6cc"
+        },
+        "dataSources": {
+            "jsonSetting": {
+                "uri": "model/jsonSetting.json",
+                "type": "JSON"
+            }
+        }
+    },
+    "sap.ui": {
+        "fullWidth": true,
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_belize"
+        ]
+    },
+    "sap.ui5": {
+        "config": {
+            "fullWidth": true
+        },
+        "rootView": {
+            "viewName": "com.zdm.Home.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        },
+        "dependencies": {
+            "minUI5Version": "1.30.0",
+            "libs": {
+                "sap.m": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.zdm.Home.i18n.i18n"
+                }
+            },
+            "jsonSetting": {
+                "preload": true,
+                "type": "sap.ui.model.json.JSONModel",
+                "dataSource": "jsonSetting"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "componentUsages": {
+            "mvn_asset_in_asset": {
+                "name": "com.zdm.InwardOfAsset",
+                "lazy": false
+            }
+        },
+        "resourceRoots": {
+            "com.zdm.InwardOfAsset": "../asset_in_asset"
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "com.zdm.Home.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "transition": "slide",
+                "async": true,
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "mvn_asset_tranfer_action_item_home",
+                    "pattern": "mvn_action_item_home/{ReqNo}/{reqType}/{statusType}",
+                    "target": "mvn_asset_action_item"
+                },
+                {
+                    "name": "mvn_asset_inwarding_inwardAsset_detail",
+                    "pattern": "mvn/asset/inwarding/inwardofasset",
+                    "target": "mvn_asset_inwarding_inwardAsset_detail"
+                },
+                {
+                    "name": "mvn_asset_action_item",
+                    "pattern": "mvn/asset/action_item",
+                    "target": "mvn_asset_action_item"
+                },
+                {
+                    "name": "mvn_asset_tran_req_cr",
+                    "pattern": "mvn_asset_tran_req_cr",
+                    "target": "mvn_asset_tran_req_cr"
+                },
+                {
+                    "name": "mvn_asset_co_db",
+                    "pattern": "mvn_asset_co_db",
+                    "target": "mvn_asset_co_db"
+                },
+                {
+                    "name": "mvn_asset_home",
+                    "pattern": "",
+                    "target": "mvn_asset_home"
+                },
+                {
+                    "name": "mvn_asset_inwarding_inwardAccessory_detail",
+                    "pattern": "mvn/asset/inwarding/inwardofaccessory",
+                    "target": "mvn_asset_inwarding_inwardAccessory_detail"
+                },
+                {
+                    "name": "mvn_asset_inwarding_updateAccessory_detail",
+                    "pattern": "mvn/asset/inwarding/updateaccessory",
+                    "target": "mvn_asset_inwarding_updateAccessory_detail"
+                },
+                {
+                    "name": "mvn_asset_in_addSoftware",
+                    "pattern": "mvn/asset/inwarding/addsoftware",
+                    "target": "mvn_asset_in_addSoftware"
+                },
+                {
+                    "name": "mvn_asset_accesssearch",
+                    "pattern": "mvn_asset_accesssearch",
+                    "target": "mvn_asset_accesssearch"
+                },
+                {
+                    "name": "mvn_pi_create",
+                    "pattern": "mvn_pi_create",
+                    "target": "mvn_pi_create"
+                },
+                {
+                    "name": "mvn_pi_edit",
+                    "pattern": "mvn_pi_edit",
+                    "target": "mvn_pi_create"
+                },
+                {
+                    "name": "mvn_pire",
+                    "pattern": "mvn_pire",
+                    "target": "mvn_pire"
+                },
+                {
+                    "name": "mvn_asset_TranAcs_Search",
+                    "pattern": "mvn_asset_TranAcs_Search",
+                    "target": "mvn_asset_TranAcs_Search"
+                },
+                {
+                    "name": "mvn_asset_inwarding_updateSoftware",
+                    "pattern": "mvn/asset/inwarding/updatesoftware",
+                    "target": "mvn_asset_inwarding_updateSoftware"
+                },
+                {
+                    "name": "mvn_search_gatepass",
+                    "pattern": "SearchGatepass",
+                    "target": "mvn_search_gatepass"
+                },
+                {
+                    "name": "mvn_asset_accesdDealocSrh",
+                    "pattern": "p_asset_accesdDealocSrh",
+                    "target": "mvn_asset_accesdDealocSrh"
+                },
+                {
+                    "name": "mvn_asset_tran_req_rt",
+                    "pattern": "mvn_asset_tran_req_rt/{ReqNo}",
+                    "target": "mvn_asset_tran_req_cr"
+                },
+                {
+                    "name": "mvn_asset_tranfer_action_item_home",
+                    "pattern": "mvn_action_item_home/{ReqNo}/{reqType}/{statusType}",
+                    "target": "mvn_asset_action_item"
+                },
+                {
+                    "name": "mvn_asset_tranfer_asset_approve",
+                    "pattern": "TransferApprove/{ReqNo}/{ReqStatus}",
+                    "target": "mvn_asset_action_item"
+                },
+                {
+                    "name": "com_maventic_MaventicVeifyPI",
+                    "pattern": "Verify_PI",
+                    "target": "com_maventic_MaventicVeifyPI"
+                },
+                {
+                    "name": "mvn_asset_in_nonPOAsset",
+                    "pattern": "mvn/asset/inwarding/nonpoasset",
+                    "target": "mvn_asset_in_nonPOAsset"
+                },
+                {
+                    "name": "ASSET_MSTR",
+                    "pattern": "p_ASSET_MSTR",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "ASSET_TRANS",
+                    "pattern": "p_ASSET_TRANS",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "ASSET_ALLOC",
+                    "pattern": "p_ASSET_ALLOC",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "ASSET_AS_SEARCH",
+                    "pattern": "AsSearch",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "ASSET_ACS_TRANS",
+                    "pattern": "ACSTRANS",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "ASSET_AS_ALOC",
+                    "pattern": "ASALOC",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "ASSET_SOFT_ALOC",
+                    "pattern": "SOFTALOC",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "ASSET_SFT_MSTR",
+                    "pattern": "SFTMSTR",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "ASSET_AST_AMC",
+                    "pattern": "p_ASSET_AST_AMC",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "ASSET_ACS_AMC",
+                    "pattern": "ACSAMC",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "ASSET_SOFT_AMC",
+                    "pattern": "SOFTAMC",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "ASSET_BC_PRINT",
+                    "pattern": "p_BC_PRINT",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "ASSET_AC_BRCODE",
+                    "pattern": "ACBRCODE",
+                    "target": "mvn_asset_reports"
+                },
+                {
+                    "name": "mvn_Asset_Graphical_Report",
+                    "pattern": "GraphicalReport",
+                    "target": "mvn_pire"
+                }
+            ],
+            "targets": {
+                "mvn_asset_reports": {
+                    "type": "Component",
+                    "usage": "mvn_asset_reports"
+                },
+                "mvn_asset_home": {
+                    "viewType": "XML",
+                    "viewName": "Home",
+                    "transition": "slide",
+                    "clearControlAggregation": false
+                },
+                "com_maventic_MaventicVeifyPI": {
+                    "type": "Component",
+                    "usage": "com_maventic_MaventicVeifyPI"
+                },
+                "mvn_asset_action_item": {
+                    "type": "Component",
+                    "usage": "mvn_asset_tr_ac_itm"
+                },
+                "mvn_asset_inwarding_inwardAsset_detail": {
+                    "type": "Component",
+                    "usage": "mvn_asset_in_asset"
+                },
+                "mvn_asset_tran_req_cr": {
+                    "type": "Component",
+                    "usage": "asset_tr_req"
+                },
+                "mvn_asset_co_db": {
+                    "type": "Component",
+                    "usage": "asset_cdb"
+                },
+                "mvn_asset_inwarding_inwardAccessory_detail": {
+                    "type": "Component",
+                    "usage": "mvn_asset_in_inwardAccessory"
+                },
+                "mvn_asset_inwarding_updateAccessory_detail": {
+                    "type": "Component",
+                    "usage": "mvn_asset_in_updateAccessory"
+                },
+                "mvn_asset_in_addSoftware": {
+                    "type": "Component",
+                    "usage": "mvn_asset_in_addSoftware"
+                },
+                "mvn_asset_accesssearch": {
+                    "type": "Component",
+                    "usage": "mvn_asset_accesssearch"
+                },
+                "mvn_pi_create": {
+                    "type": "Component",
+                    "usage": "mvn_asset_pi"
+                },
+                "mvn_pire": {
+                    "type": "Component",
+                    "usage": "mvn_asset_pire"
+                },
+                "mvn_asset_TranAcs_Search": {
+                    "type": "Component",
+                    "usage": "mvn_asset_TranAcs_Search"
+                },
+                "mvn_asset_inwarding_updateSoftware": {
+                    "type": "Component",
+                    "usage": "mvn_asset_in_updt_software"
+                },
+                "mvn_search_gatepass": {
+                    "type": "Component",
+                    "usage": "mvn_asset_search_gatepass"
+                },
+                "mvn_asset_accesdDealocSrh": {
+                    "type": "Component",
+                    "usage": "mvn_asset_search_deallocate"
+                },
+                "mvn_asset_in_nonPOAsset": {
+                    "type": "Component",
+                    "usage": "mvn_asset_in_nonPOAsset"
+                }
+            }
+        }
+    },
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/sap/zdm_home",
+        "_version": "1.1.0"
+    }
+}

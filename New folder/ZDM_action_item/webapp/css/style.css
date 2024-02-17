@@ -1,0 +1,52 @@
+/* Enter your custom styles here */
+
+.blueTExt {
+    color: blue;
+    font-weight: bold;
+}
+
+.PanelBkround {
+    background-color: #90EE90;
+    /* Green color */
+}
+
+.sapUiForm .sapUiFormElementLbl>.sapMLabel {
+    text-align: left !important;
+    width: auto;
+}
+
+input:disabled {
+    background: transparent;
+    border: none;
+    font-style: normal;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    font-size: .875rem;
+    font-family: "72", "72full", Arial, Helvetica, sans-serif;
+    color: #131e29;
+    line-height: normal;
+    padding: 0 0.625rem;
+    height: 100%;
+    box-sizing: border-box;
+    min-width: 2.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: inherit;
+}
+
+input:Disabled {
+    /*cursor: default;*/
+    background-color: #f2f2ed;
+    font-weight: bold;
+    /*color: #888 !important;*/
+    border:1px solid black;
+    border-radius : 3px;
+    border-color: rgba(118, 118, 118, 0.3);
+}
+
+input:enabled {
+    cursor: default;
+    background-color: -internal-light-dark(rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3));
+    color: -internal-light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
+    border-color: rgba(118, 118, 118, 0.3);
+}

@@ -1,0 +1,197 @@
+<mvc:View controllerName="com.zdm.action.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns:smartMultiInput="sap.ui.comp.smartmultiinput" xmlns="sap.m" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:m="sap.m" xmlns:ndc="sap.ndc" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" height="100%">
+	<App>
+		<pages>
+			<Page title="Driver Update" showHeader="false">
+				<m:Panel >
+					<VBox >
+						<f:SimpleForm id="BasicDetails" editable="false" columnsM="2" columnsL="3" columnsXL="4">
+							<f:content class="MarginTop MarginBottom">
+								<core:Title text=""/>
+								<VBox>
+									<HBox >
+										<VBox width="20%">
+											<m:Label text="Driver ID" class="sapUiTinyMarginTop sapUiNoMarginBottom" width="100%" labelFor="idDriverID"/>
+										</VBox>
+										<HBox width="80%">
+											<m:Input value="{mMainModel>/input/DriverID}" id="idDriverID" class="sapUiSmallMarginBegin" liveChange="lvDriverID" width="100%"
+												change="onDriverID" type="Text" showSuggestion="true" suggestionItems="{mMainModel>/DD/Driver}" selectedKey="{mMainModel>/Key/DriverID}"
+												valueState="{mMainModel>/ValueState/DriverID}">
+												<suggestionItems>
+													<core:ListItem key="{mMainModel>DdKey}" text="{mMainModel>DdValue}"/>
+												</suggestionItems>
+											</m:Input>
+										</HBox>
+									</HBox>
+									<HBox >
+										<VBox width="20%">
+											<m:Label text="Billing Doc." class="sapUiTinyMarginTop sapUiNoMarginBottom" width="100%" labelFor="idBillDoc"/>
+										</VBox>
+										<HBox width="80%">
+											<HBox width="100%" alignItems="Start">
+												<!--<m:Input value="{mMainModel>/input/BillDocList}" change="onChangeInvoice" id="idBillDoc" class="sapUiSmallMarginBegin" width="90%"-->
+												<!--	valueState="{mMainModel>/ValueState/BilDoc}" maxLength="10"></m:Input>-->
+												<MultiInput  tokenUpdate="onBilldocInput" change="onBilldocInput"  id="idBillDoc" value="{mMainModel>/input/BillDocList}" showSuggestion="false"
+													maxLength="10" class="sapUiSmallMarginBegin" width="90%" showValueHelp="false">
+														
+												</MultiInput>
+												<ndc:BarcodeScannerButton dependents="idBillDoc" id="sampleBarcodeScannerButtonZebraOne" scanSuccess="onScanInvoice"
+													inputLiveUpdate="onScanLiveUpdate" dialogTitle="Billing Document" keepCameraScan="{/keepCameraScanOne}"
+													class="sampleBarcodeScannerButtonWithZebraEB sapUiNoMarginBegin"/>
+												<!--class="sampleBarcodeScannerButtonWithZebraEB sapUiSmallMarginBegin"-->
+											</HBox>
+										</HBox>
+									</HBox>
+								</VBox>
+								<core:Title text=""/>
+								<VBox>
+									<HBox >
+										<VBox width="20%">
+											<m:Label text="Site" class="sapUiTinyMarginTop sapUiNoMarginBottom" width="100%" labelFor="idSite"/>
+										</VBox>
+										<HBox width="80%">
+											<!--<m:Input value="{mMainModel>/input/Site}" id="idSite" class="sapUiSmallMarginBegin" liveChange="lvSite" width="100%"-->
+											<!--	change="onSite" type="Text" showSuggestion="true" suggestionItems="{mMainModel>/DD/Site}" selectedKey="{mMainModel>/Key/Site}"-->
+											<!--	valueState="{mMainModel>/ValueState/Site}">-->
+											<!--	<suggestionItems>-->
+											<!--		<core:ListItem key="{mMainModel>DdKey}" text="{mMainModel>DdValue}"/>-->
+											<!--	</suggestionItems>-->
+											<!--</m:Input>-->
+											<MultiComboBox value="{mMainModel>/input/Site}" class="sapUiSmallMarginBegin" selectionChange="onSelectSite"
+												selectionFinish="handleSelectionFinish" items="{mMainModel>/DD/Site}" width="85%" selectedKeys="{mMainModel>/Key/Site}">
+												<core:Item key="{mMainModel>DdKey}" text="{mMainModel>DdValue}"/>
+											</MultiComboBox>
+										</HBox>
+									</HBox>
+									<HBox >
+										<VBox width="20%">
+											<m:Label text="Created On" class="sapUiTinyMarginTop sapUiNoMarginBottom" width="100%" labelFor="idCreateOn"/>
+										</VBox>
+										<HBox width="80%">
+											<m:DatePicker class="sapUiSmallMarginBegin" width="85%" id="idCreateOn" value="{mMainModel>/input/CreateOn}"></m:DatePicker>
+										</HBox>
+									</HBox>
+									<HBox width="100%">
+										<VBox width="20%">
+											<Label text=""/>
+										</VBox>
+										<VBox width="80%">
+											<HBox width="100%" alignItems="End" alignContent="End">
+												<VBox width="35%">
+													<Button icon="sap-icon://search" type="Emphasized" width="100%" text="Search" press="onSearch"
+														enabled="{=${mMainModel>/Key/DriverID}!=='' || ${mMainModel>/Visible/searchBut} || ${mMainModel>/Key/BillDocList}.length > 0 || ${mMainModel>/input/CreateOn}!==''}"/>
+												</VBox>
+												<VBox width="35%">
+													<Button icon="sap-icon://sys-cancel" type="Reject" width="100%" text="Clear" press="clearData"/>
+												</VBox>
+											</HBox>
+										</VBox>
+									</HBox>
+								</VBox>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</m:Panel>
+				<Panel >
+					<OverflowToolbar visible="false">
+						<ToolbarSpacer/>
+						<Button tooltip="Export" icon="sap-icon://excel-attachment" press="onExport" visible="true"/>
+						<Button tooltip="sort" icon="sap-icon://sort" press="onSort" visible="true"/>
+						<Input width="15%" visible="true" liveChange="onSearchTable" id="hideableInput"/>
+						<Button icon="sap-icon://search" press="onToggleInput" visible="false"/>
+					</OverflowToolbar>
+					<ScrollContainer height="30rem" id="ScrollActivity" horizontal='true' vertical='true' width="100%" focusable="true">
+						<Table id="PO_GR" busy="false" alternateRowColors="true" noDataText="" width="100%" growing="true" growingScrollToLoad="true"
+							growingThreshold="10" items="{ path:'mMainModel>/Table/BillingDocDet'}">
+							<headerToolbar></headerToolbar>
+							<columns >
+								<Column hAlign="Center" width="6.5em">
+									<Label text="" design="Bold" wrapping="true"/>
+								</Column >
+								<Column hAlign="Center" width="6.5em">
+									<Label text="Billing Doc" design="Bold" wrapping="true"/>
+								</Column >
+								<Column hAlign="Center" width="7em">
+									<Label text="Customer Code" wrapping="true" design="Bold"/>
+								</Column >
+								<Column hAlign="Center" width="7em">
+									<Label text="Customer Name" wrapping="true" design="Bold"/>
+								</Column >
+								<Column hAlign="Center" width="7em">
+									<Label text="Route Code" wrapping="true" design="Bold"/>
+								</Column >
+								<Column hAlign="Center" width="7em">
+									<Label text="Route Code Name" wrapping="true" design="Bold"/>
+								</Column >
+								<Column hAlign="Center" width="7em" visible="{mMainModel>/Visible/Update}">
+									<Label text="Driver id" wrapping="true" design="Bold"/>
+								</Column >
+								<Column hAlign="Center" width="7em" visible="{=${mMainModel>/Visible/Update}===false}">
+									<Label text="Old Driver id" wrapping="true" design="Bold"/>
+								</Column >
+								<Column hAlign="Center" width="7em" visible="{=${mMainModel>/Visible/Update}===false}">
+									<Label text="New Driver id" wrapping="true" design="Bold"/>
+								</Column >
+								<Column hAlign="Center" width="7em">
+									<Label text="Order Num" wrapping="true" design="Bold"/>
+								</Column >
+								<Column hAlign="Center" width="7em">
+									<Label text="Vehicle Num" wrapping="true" design="Bold"/>
+								</Column >
+								<Column hAlign="Center" width="7em">
+									<Label text="Invoice Value" wrapping="true" design="Bold"/>
+								</Column >
+								<Column hAlign="Center" width="10em">
+									<Label text="Invoice Remark" wrapping="true" design="Bold"/>
+								</Column >
+								<Column hAlign="Center" width="7em">
+									<Label text="Return Date" wrapping="true" design="Bold"/>
+								</Column >
+							</columns>
+							<items>
+								<ColumnListItem >
+									<customData>
+										<core:CustomData key="mydata" value="{mMainModel>GrandToalFlag}" writeToDom="true"></core:CustomData>
+									</customData>
+									<cells>
+										<CheckBox selected="{mMainModel>Selected}" select="onSelectRow"></CheckBox>
+										<Text text="{mMainModel>Vbeln}"/>
+										<Text text="{mMainModel>Kunag}"/>
+										<Text text="{mMainModel>KunagText}"/>
+										<Text text="{mMainModel>Zdelvarea}"/>
+										<Text text="{mMainModel>Zdeldesc}"/>
+										<Text text="{mMainModel>Zdriverid}"/>
+										<Text text="{mMainModel>Zolddriverid}"/>
+										<Text text="{mMainModel>Zdriverid}"/>
+										<Text text="{mMainModel>Ordernum}"/>
+										<Text text="{mMainModel>Ktext}"/>
+										<Text text="{mMainModel>Netwr}"/>
+										<!--<m:Input value="{mMainModel>InvoiceStatus}" class="sapUiSmallMarginBegin" width="8.5em" enabled="{mMainModel>enabled}"-->
+										<!--	change="onInvoiceStatusChange" type="Text" showSuggestion="true" suggestionItems="{mMainModel>InvoiceStatusDD}"-->
+										<!--	selectedKey="{mMainModel>InvoiceStatus}">-->
+										<!--	<suggestionItems>-->
+										<!--		<core:ListItem key="{mMainModel>DdValue}" text="{mMainModel>DdValue}"/>-->
+										<!--	</suggestionItems>-->
+										<!--</m:Input>-->
+										<ComboBox items="{mMainModel>InvoiceStatusDD}" value="{mMainModel>InvoiceStatus}" selectedKey="{mMainModel>InvoiceStatus}">
+											<core:Item key="{mMainModel>DdValue}" text="{mMainModel>DdValue}"/>
+										</ComboBox>
+										<Text text="{mMainModel>ReturnDate}"/>
+										<!--<Text text="{path :'mMainModel>ReturnDate', formatter:'com.zdm.action.utility.Formatter.ConvDateforComments'}"/>-->
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+				</Panel>
+				<m:footer >
+					<m:OverflowToolbar >
+						<ToolbarSpacer/>
+						<Button text="Update Invoice" press="onUpdateInvoice"></Button>
+					</m:OverflowToolbar>
+				</m:footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

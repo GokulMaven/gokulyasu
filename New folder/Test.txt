@@ -1,0 +1,68 @@
+Yeoman is not installed or available in your executable path. Please check your configuration or use npm/yarn to install it glob
+ally
+
+npm list -g yo
+
+
+GetAssets
+CompanyCode
+Asset
+
+
+/sap/opu/odata/sap/zeam_asset_srv/GetAssets?CompanyCode=%271000%27&Asset=%27%27
+
+
+{"id":"http://s4devapp.jaleel.local:8000/sap/opu/odata/sap/zeam_asset_srv/SearchAssetSet('12102')","uri":"http://s4devapp.jaleel.local:8000/sap/opu/odata/sap/zeam_asset_srv/SearchAssetSet('12102')","type":"ZEAM_ASSET_SRV.SearchAsset"},"Asset":"12102","AssetSub":"0","AssetClass":"120","AssetClassDesc":"Cold Store - Group Asset","CompanyCode":"1000","CompanyCodeDesc":"Jaleel Holdings BVI","Opt1":"","Opt2":"","Opt3":"","Opt4":"","Opt5":"","Opt6":null,"Opt7":null,"Opt8":"PT00H00M00S","Opt9":"PT00H00M00S"}
+
+
+ZDM_INVOICE_LOG
+
+
+GetSearchAsset
+Sugges
+
+
+/sap/opu/odata/sap/zeam_asset_srv/GetSearchAsset?Sugges=%271000%27&$format=json
+
+
+
+General Information
+Asset Class [Table ANLA, Field ANLKL]
+Asset Code [Table ANLA, Filed ANLN1]
+Asset Description [Table ANLA, Field ANLN1]
+Quantity [Table ANLA, Field MENGE]
+UOM [Table ANLA Filed MEINS]
+Capitalized on [Table ANLA Field AKTIV]
+Time Dependent Data:
+Cost center [Table ANLZ, Field KOSTL]
+Plant [Table ANLZ, Field WERKS]
+Location [Table ANLZ, Field STORT]
+Room [Table ANLZ, Field RAUMN]
+Person Responsible [Table ANLZ, Field PERNR]
+Assignments
+Asset Super Number [Table ANLA, Field ANLUE]
+Origin
+Vendor Code [Table ANLA, Field LIFNR]
+Vendor Name [Table ANLA, Field LIEFE]
+Depreciation Area
+Depreciation Key [Table ANLB, Field AFASL]
+Depreciation Start Date [Table ANLB, Field AFABG]
+Group Asset Assigned [Table ANLB, Field ANLGR]
+
+
+GetBasicDetail
+Asset
+CompanyCode
+
+
+
+/sap/opu/odata/sap/zeam_asset_srv/GetBasicDetail?CompanyCode=%271000%27&Asset=%27150000057%27&$format=json
+
+
+
+http://s4devapp.jaleel.local:8000/sap/bc/ui5_ui5/sap/zeam_tr_asset/index.html
+
+
+ZDM_ODATA_SRV
+ZDM_PUBLIC_ODATA_SRV
+ZDM_DRI_ACT_PUB

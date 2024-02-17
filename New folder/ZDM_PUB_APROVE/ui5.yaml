@@ -1,0 +1,37 @@
+specVersion: "3.1"
+metadata:
+  name: com.zdm.action_public
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        backend:
+          - path: /sap
+            url: http://s4devapp.jaleel.local:8000/
+            client: "500"
+            destination: RED
+          - path: /red
+            destination: RED
+            url: http://s4devapp.jaleel.local:8000/
+            client: "500"
+            pathPrefix: /          
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+          version: 1.52.13
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: com.zdm.action_public
+        ui5Theme: sap_fiori_3

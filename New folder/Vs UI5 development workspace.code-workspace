@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "RED(ABAP)",
+			"uri": "adt://red"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}

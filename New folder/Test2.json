@@ -1,0 +1,35 @@
+{
+    "d": {
+        "__metadata": {
+            "id": "http://s4devapp.jaleel.local:8000/sap/opu/odata/sap/zeam_asset_srv/BasicDetailsSet('150000057')",
+            "uri": "http://s4devapp.jaleel.local:8000/sap/opu/odata/sap/zeam_asset_srv/BasicDetailsSet('150000057')",
+            "type": "ZEAM_ASSET_SRV.BasicDetails"
+        },
+        "AssetClass": "1500",
+        "AssetCode": "150000057",
+        "AssetDescription": "2116-WEIGHEN SCALE",
+        "Quantity": "1",
+        "Uom": "EA",
+        "CapitalizedOn": "\/Date(1325376000000)\/",
+        "CostCenter": "1000999001",
+        "Plant": "",
+        "Location": "",
+        "Room": "",
+        "ResponsiblePerson": "00000000",
+        "AssetSuperNumber": "",
+        "VendorCode": "",
+        "VendorName": "",
+        "DepreciationKey": "J025",
+        "DepreciationStartDate": "\/Date(1437523200000)\/",
+        "GroupAsset": "",
+        "Opt1": "",
+        "Opt2": "",
+        "Opt3": "",
+        "Opt4": "",
+        "Opt5": "",
+        "Opt6": null,
+        "Opt7": null,
+        "Opt8": "PT00H00M00S",
+        "Opt9": "PT00H00M00S"
+    }
+}

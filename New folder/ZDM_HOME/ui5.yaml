@@ -1,0 +1,114 @@
+specVersion: "3.1"
+metadata:
+  name: com.zdm.home
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        backend:
+          - path: /sap
+            url: ""
+            destination: GWD
+          - path: /gwd
+            destination: GWD
+            url: ""
+            pathPrefix: /
+          - path: /resources/com/maventic/commonDashboard
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_cdb
+          - path: /resources/com/maventic/AdditionalInfo
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_info
+          - path: /resources/com/zdm/InwardOfAsset
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_in_asset
+          - path: /resources/com/zdm/InwardOfAccessory
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_in_accsry
+          - path: /resources/com/maventic/ScrappingProcess
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_scrap_prc
+          - path: /resources/com/maventic/AssetAllocation
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_allo
+          - path: /resources/com/maventic/EAMTransferAsset
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_tr_req
+          - path: /resources/com/maventic/SearchGatepass
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/rc_gatepas
+          - path: /resources/com/maventic/accessorySearch
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_acs_srh
+          - path: /resources/com/maventic/accessoryAlloc
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_acs_alloc
+          - path: /resources/com/zdm/MassUpdtAsset
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_in_mu_ast
+          - path: /resources/com/zdm/AddSoftware
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_in_addsof
+          - path: /resources/com/maventic/EAMTransferAssetActionItem
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_tr_ac_itm
+          - path: /resources/com/maventic/SearchDeallocate
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_srh_deall
+          - path: /resources/com/maventic/deAllocate
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_dalo
+          - path: /resources/com/zdm/UpdateAccessoryDetails
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_in_utd_ac
+          - path: /resources/com/zdm/UpdateSoftware
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_updt_soft
+          - path: /resources/com/maventc/TransAccesSearch
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_trsh
+          - path: /resources/com/maventic/PhysicalInvetoryReport
+            destination: MD1
+            url: ""
+            pathPrefix: /sap/bc/ui5_ui5/mvn/asset_pire
+          - path: model/jsonSetting.json
+            url: ""
+            destination: GWD
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+          version: 1.52.13
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: com.zdm.Home
+        ui5Theme: sap_fiori_3
